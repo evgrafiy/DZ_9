@@ -2,28 +2,21 @@
 // N = 5 -> "4, 2"
 // N = 8 -> "8, 6, 4, 2,"
 
-Console.Write("Загадайте чёткое натуральное число, на котором всё закончится: ");
-int number = Convert.ToInt32(Console.ReadLine());
-int count = 1;
-EvenToLow(number, count);
-int i = 1;
-while (i <= numNum)
+int n = InputNumbers("Загадайте чёткое натуральное число, на котором всё закончится: ");
+int count = 2;
+PrintNumber(n, count);
+Console.Write(2);
+
+void PrintNumber(int n, int count)
 {
-    if(i % 2 == 0){
-        Console.WriteLine(i);
-    }
-    i++;
+  if (count > n) return;
+ PrintNumber(n, count + 2);
+   Console.Write(count + ", ");
 }
 
-void EvenToLow(int n, int count)
+int InputNumbers(string input) 
 {
-    if (count > n)
-    {
-        return;
-    }
-    else
-    {
-        EvenToLow(n, count + 1);
-        Console.Write(count + " ");
-    }
+  Console.Write(input);
+  int output = Convert.ToInt32(Console.ReadLine());
+  return output;
 }
